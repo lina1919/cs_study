@@ -13,12 +13,18 @@ Makeset(x); -> {a}, {b}, {c}, {d}, {e}
 Union(a,c); -> {a,c}, {b}, {d}, {e}
 
 - Union과 find 연산은 트리의 높이에 크게 의존한다. 성능을 높이려면 트리의 높이를 최소화해야함.
+- 
 **1. Path Compression**
 	find 연산을 수행할 때마다 트리의 구조를 평평하게 만듦.
+	
 	-> 루트노드까지 순회 중 방문한 각 노드들이 직접 루트 노드를 가리키도록 함
+	
 	모든 노드들은 같은 대표 노드 공유
+	
 	find O(1)
+	
 **2. Union By Rank**
+
 	1. 항상 작은 트리를 큰 트리 루트에 붙인다.
 	2. Union 과 Find 는 worst case에 O(logn)
 	3. tree의 element 개수는 최소 2^r(r=tree의 rank)
@@ -54,7 +60,7 @@ Union(x,y){
 
 ```
 
-##Scheduling with Deadlines using disjoint sets
+## Scheduling with Deadlines using disjoint sets
 
 1. 주어진 jobs들을 profit 값을 기준으로 비증가 순서대로 정렬한다.
 2. dmax + 1개의 disjoint set으로 초기화합니다. 각 집합에는 0부터 dmax까지의 정수가 포함된다. 이 집합들은 각각 시간 슬롯을 나타낸다.
